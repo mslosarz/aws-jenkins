@@ -72,6 +72,7 @@ email-ext:2.65
 pipeline-utility-steps:2.3.0
 aws-java-sdk:1.11.457
 aws-credentials:1.26
+pipeline-aws:1.36
 jenkins-design-language:1.13.2
 pubsub-light:1.12
 htmlpublisher:1.18
