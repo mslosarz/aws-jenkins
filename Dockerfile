@@ -1,5 +1,9 @@
 FROM jenkins/jenkins:lts
 
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
+RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
+
 USER root
 
 # Install AWS-CLI
@@ -18,7 +22,11 @@ RUN pip3 --no-cache-dir install --upgrade awscli
 # Install node 8.XX
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get update \
-    && apt-get install -y nodejs \
+    && apt-get install -y \
+        nodejs \
+        gcc \
+        g++ \
+        make \
     && apt-get clean \
     && nodejs -v \
     && npm install npm@latest -g
