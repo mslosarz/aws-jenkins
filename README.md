@@ -1,10 +1,5 @@
 # Jenkins image with aws-cli installed
 
-### USEFUL PLUGINS:
-- Pipeline Utility Steps
-- Amazon Web Services SDK
-
-
 ### To build image run:
 `./create_jenkins.sh`
 ### To start jenkins run:
